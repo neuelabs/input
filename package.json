@@ -1,0 +1,76 @@
+{
+	"name": "@neuelabs/input",
+	"version": "0.0.0",
+	"description": "neuelabs react input component",
+	"main": "./dist/index.js",
+	"repository": "https://github.com/neuelabs/input.git",
+	"author": "Bu Kinoshita <bukinoshita@gmail.com>",
+	"license": "MIT",
+	"keywords": ["neuelabs", "input", "react", "component"],
+	"engines": {
+		"node": ">=8"
+	},
+	"files": ["dist"],
+	"scripts": {
+		"build": "babel index.js --out-dir=dist",
+		"test": "xo && ava",
+		"prepublishOnly": "yarn build",
+		"storybook": "start-storybook -p 9001 -c .storybook",
+		"gh-pages:build": "build-storybook -o _gh-pages",
+		"gh-pages:clean": "rimraf _gh-pages",
+		"gh-pages:publish": "git-directory-deploy --directory _gh-pages",
+		"gh-pages":
+			"yarn gh-pages:clean && yarn gh-pages:build && yarn gh-pages:publish"
+	},
+	"dependencies": {
+		"classnames": "^2.2.5",
+		"prop-types": "^15.6.0",
+		"styled-jsx": "^2.2.3"
+	},
+	"devDependencies": {
+		"@ava/babel-preset-stage-4": "^1.1.0",
+		"@storybook/addon-a11y": "^3.3.11",
+		"@storybook/addon-actions": "^3.3.12",
+		"@storybook/react": "^3.3.11",
+		"ava": "^0.25.0",
+		"babel-cli": "^6.26.0",
+		"babel-core": "^6.26.0",
+		"babel-loader": "^7.1.2",
+		"babel-preset-env": "^1.6.1",
+		"babel-preset-react": "^6.24.1",
+		"eslint-config-prettier": "^2.9.0",
+		"eslint-plugin-jsx-a11y": "^6.0.3",
+		"eslint-plugin-react": "^7.6.1",
+		"git-directory-deploy": "^1.5.1",
+		"husky": "^0.14.3",
+		"lint-staged": "^6.1.0",
+		"prettier": "^1.10.2",
+		"react": "^16.2.0",
+		"react-dom": "^16.2.0",
+		"react-test-renderer": "^16.2.0",
+		"rimraf": "^2.6.2",
+		"xo": "^0.18.2"
+	},
+	"peerDependencies": {
+		"react": ">=16"
+	},
+	"babel": {
+		"presets": ["env", "react", "@ava/stage-4"],
+		"plugins": ["styled-jsx/babel"]
+	},
+	"ava": {
+		"require": ["babel-register"],
+		"babel": "inherit"
+	},
+	"xo": {
+		"extends": ["prettier", "prettier/react", "plugin:react/recommended"],
+		"plugins": ["jsx-a11y"]
+	},
+	"lint-staged": {
+		"index.js": [
+			"npm run test",
+			"prettier --semi false --single-quote --write",
+			"git add"
+		]
+	}
+}
