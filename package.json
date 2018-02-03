@@ -1,16 +1,23 @@
 {
 	"name": "@neuelabs/input",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "neuelabs react input component",
 	"main": "./dist/index.js",
 	"repository": "https://github.com/neuelabs/input.git",
 	"author": "Bu Kinoshita <bukinoshita@gmail.com>",
 	"license": "MIT",
-	"keywords": ["neuelabs", "input", "react", "component"],
+	"keywords": [
+		"neuelabs",
+		"input",
+		"react",
+		"component"
+	],
 	"engines": {
 		"node": ">=8"
 	},
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"build": "babel index.js --out-dir=dist",
 		"test": "xo && ava",
@@ -19,8 +26,7 @@
 		"gh-pages:build": "build-storybook -o _gh-pages",
 		"gh-pages:clean": "rimraf _gh-pages",
 		"gh-pages:publish": "git-directory-deploy --directory _gh-pages",
-		"gh-pages":
-			"yarn gh-pages:clean && yarn gh-pages:build && yarn gh-pages:publish"
+		"gh-pages": "yarn gh-pages:clean && yarn gh-pages:build && yarn gh-pages:publish"
 	},
 	"dependencies": {
 		"classnames": "^2.2.5",
@@ -55,16 +61,30 @@
 		"react": ">=16"
 	},
 	"babel": {
-		"presets": ["env", "react", "@ava/stage-4"],
-		"plugins": ["styled-jsx/babel"]
+		"presets": [
+			"env",
+			"react",
+			"@ava/stage-4"
+		],
+		"plugins": [
+			"styled-jsx/babel"
+		]
 	},
 	"ava": {
-		"require": ["babel-register"],
+		"require": [
+			"babel-register"
+		],
 		"babel": "inherit"
 	},
 	"xo": {
-		"extends": ["prettier", "prettier/react", "plugin:react/recommended"],
-		"plugins": ["jsx-a11y"]
+		"extends": [
+			"prettier",
+			"prettier/react",
+			"plugin:react/recommended"
+		],
+		"plugins": [
+			"jsx-a11y"
+		]
 	},
 	"lint-staged": {
 		"index.js": [
