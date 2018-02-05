@@ -49,6 +49,22 @@ test('Input password component', t => {
 	t.snapshot(tree)
 })
 
+test('Input multiline component', t => {
+	const tree = render
+		.create(
+			<Input
+				type="description"
+				placeholder="Type description"
+				label="Description"
+				name="description"
+				onChange={() => console.log('typing...')}
+				multiline={true}
+			/>
+		)
+		.toJSON()
+	t.snapshot(tree)
+})
+
 test('Input error component', t => {
 	const tree = render
 		.create(

@@ -15,7 +15,8 @@ const Input = ({
 	readOnly,
 	disabled,
 	error,
-	hint
+	hint,
+	multiline
 }) => {
 	const classNames = classnames({ error }, { readOnly }, { disabled })
 
@@ -23,19 +24,32 @@ const Input = ({
 		<div>
 			<label htmlFor={name}>{label}</label>
 
-			<input
-				type={type}
-				name={name}
-				id={name}
-				className={classNames}
-				placeholder={placeholder}
-				value={value}
-				onChange={onChange}
-				autoFocus={autoFocus}
-				readOnly={readOnly}
-				disabled={disabled}
-				title={label}
-			/>
+			{multiline ? (
+				<textarea
+					name={name}
+					id={name}
+					className={classNames}
+					placeholder={placeholder}
+					value={value}
+					onChange={onChange}
+					readOnly={readOnly}
+					disabled={disabled}
+				/>
+			) : (
+				<input
+					type={type}
+					name={name}
+					id={name}
+					className={classNames}
+					placeholder={placeholder}
+					value={value}
+					onChange={onChange}
+					autoFocus={autoFocus}
+					readOnly={readOnly}
+					disabled={disabled}
+					title={label}
+				/>
+			)}
 
 			{error ? (
 				<span className="error-text">
@@ -64,6 +78,25 @@ const Input = ({
 				}
 
 				input:focus {
+					border-color: #000000;
+				}
+
+				textarea {
+					min-height: 100px;
+					width: 100%;
+					max-width: 100%;
+					padding: 15px;
+					font-size: 12px;
+					border: none;
+					border-bottom: 1px solid #eeeeee;
+					outline: none;
+					transition: 0.2s;
+					color: #000000;
+					background: transparent;
+					resize: none;
+				}
+
+				textarea:focus {
 					border-color: #000000;
 				}
 
@@ -133,14 +166,16 @@ Input.propTypes = {
 	readOnly: PropTypes.bool,
 	disabled: PropTypes.bool,
 	error: PropTypes.string,
-	hint: PropTypes.string
+	hint: PropTypes.string,
+	multiline: PropTypes.bool
 }
 
 Input.defaultProps = {
 	type: 'text',
 	autoFocus: false,
 	readOnly: false,
-	disabled: false
+	disabled: false,
+	multiline: false
 }
 
 export default Input

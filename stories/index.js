@@ -42,6 +42,19 @@ storiesOf('Input', module)
 			</fieldset>
 		</section>
 	))
+	.add('textarea', () => (
+		<section>
+			<fieldset>
+				<Input
+					placeholder="Type your description"
+					label="Description"
+					name="description"
+					onChange={action('typing...')}
+					multiline={true}
+				/>
+			</fieldset>
+		</section>
+	))
 	.add('states', () => (
 		<section>
 			<fieldset>
