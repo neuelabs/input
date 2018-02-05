@@ -1,6 +1,6 @@
 {
 	"name": "@neuelabs/input",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "neuelabs react input component",
 	"main": "./dist/index.js",
 	"repository": "https://github.com/neuelabs/input.git",
