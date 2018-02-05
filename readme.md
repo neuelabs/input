@@ -1,5 +1,7 @@
 ![neuelabs input cover](https://github.com/neuelabs/media/blob/master/github/input.png)
 
+[![Build Status](https://travis-ci.org/neuelabs/input.svg?branch=master)](https://travis-ci.org/neuelabs/input)
+
 ## Install
 
 ```bash
